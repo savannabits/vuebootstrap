@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container p-2 mx-auto mt-4 border justify-content-center"
+    class="container p-2 mx-auto my-4 border justify-content-center"
     id="app"
   >
     <h4>Button Color</h4>
@@ -76,19 +76,41 @@
         set to true.
       </p>
     </vb-collapse>
+
+    <h2>Accordion</h2>
+    <hr />
+    <vb-accordion :flush="false" class="mb-4">
+      <vb-accordion-item header="First Item">
+        The first Item in the accordion
+      </vb-accordion-item>
+      <vb-accordion-item header="Second Item">
+        The second Item in the accordion
+      </vb-accordion-item>
+      <vb-accordion-item header="Third Item">
+        The third Item in the accordion
+      </vb-accordion-item>
+    </vb-accordion>
   </div>
 </template>
 <script lang="ts">
 import vuebootstrapSample from "@/lib-components/vuebootstrap-sample.vue";
 import VbButton from "@/lib-components/buttons/Button.vue";
 import VbCollapse from "@/lib-components/collapse/Collapse.vue";
+import VbAccordionItem from "@/lib-components/accordion/AccordionItem.vue";
+import VbAccordion from "@/lib-components/accordion/Accordion.vue";
 import { defineComponent, ref } from "vue";
 
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { VuebootstrapSample } from '@/entry.esm';
 
 export default defineComponent({
-  components: { vuebootstrapSample, VbButton, VbCollapse },
+  components: {
+    vuebootstrapSample,
+    VbButton,
+    VbCollapse,
+    VbAccordion,
+    VbAccordionItem,
+  },
   name: "ServeDev",
   setup() {
     const collapse = ref(false);

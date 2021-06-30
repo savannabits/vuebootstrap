@@ -1,11 +1,11 @@
 <template>
-  <div v-collapse="show">
+  <div v-collapse="{ state: show, parent: parent }">
     <slot></slot>
   </div>
 </template>
 <script lang="ts">
 import BCollapse from "@/directives/BCollapse";
-import { defineComponent, Ref, ref, toRef, watch } from "vue";
+import { defineComponent, ref, Ref, toRef } from "vue";
 export default defineComponent({
   name: "VbCollapse",
   props: {
@@ -13,11 +13,17 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    parent: {
+      type: ref,
+      default: null,
+    },
   },
   setup(props) {
     const show: Ref<Boolean> = toRef(props, "show");
+    const parent = toRef(props, "parent");
     return {
       show,
+      parent,
     };
   },
   directives: {

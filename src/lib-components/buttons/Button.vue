@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" :class="[classes]">
+  <button :class="[classes]">
     <slot></slot>
   </button>
 </template>
@@ -9,6 +9,7 @@ import Renderable from "../global/Renderable";
 export default defineComponent({
   name: "VbButton",
   props: {
+    baseClass: { type: String, default: "btn" },
     disabled: { type: Boolean, default: false },
     pill: { type: Boolean, default: false },
     pressed: { type: Boolean, default: null },
@@ -24,7 +25,9 @@ export default defineComponent({
   setup(props) {
     const rProps = toRefs(props);
     const variant = toRef(props, "variant");
+    const baseClass = toRef(props, "baseClass");
     const classes = [
+      `${baseClass.value}`,
       `btn-${variant.value || "secondary"}`,
       {
         [`btn-${rProps.size.value}`]: rProps.size.value,
