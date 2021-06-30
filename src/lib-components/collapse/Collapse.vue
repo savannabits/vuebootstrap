@@ -4,8 +4,8 @@
   </div>
 </template>
 <script lang="ts">
+import BCollapse from "@/directives/BCollapse";
 import { defineComponent, Ref, ref, toRef, watch } from "vue";
-import Collapse from "bootstrap/js/src/collapse";
 export default defineComponent({
   name: "VbCollapse",
   props: {
@@ -21,22 +21,7 @@ export default defineComponent({
     };
   },
   directives: {
-    collapse: {
-      created(el, binding) {
-        el.classList.add("collapse");
-        new Collapse(el, { toggle: false });
-      },
-      beforeUpdate(el: Element, binding, vnode) {
-        // if (binding.oldValue === binding.value) { return }
-        /* el.classList.add("collapsing");
-        el.classList.remove("collapse", "show"); */
-        if (binding.value) {
-          new Collapse(el, { toggle: false }).show();
-        } else {
-          new Collapse(el, { toggle: false }).hide();
-        }
-      },
-    },
+    collapse: BCollapse,
   },
 });
 </script>

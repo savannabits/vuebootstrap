@@ -8,6 +8,8 @@
         "noUnusedLocals": false,
         "noUnusedParameters": false,
         "importHelpers": true,
+        "allowJs": true,
+        "noImplicitAny": false,
         "moduleResolution": "node",
         "experimentalDecorators": true,
         "esModuleInterop": true,

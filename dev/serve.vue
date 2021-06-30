@@ -65,6 +65,7 @@
     </div>
 
     <h2>Collapse</h2>
+    <hr />
     <vb-button variant="danger" @click="toggleCollapse"
       >Toggle Collapse</vb-button
     >
